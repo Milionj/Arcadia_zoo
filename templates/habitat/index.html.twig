@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Habitats{% endblock %}
+
+{% block body %}
+<h1> Habitats du Zoo</h1>
+
+<ul>
+ {% for habitat in habitats %}
+    <li>
+    {{ habitat.nom }} - {{ habitat.type }}
+    </li>
+
+    {% else %}
+    <li> Aucun habitats disponible</li>
+ {% endfor %}
+ </ul>
+
+{% endblock %}

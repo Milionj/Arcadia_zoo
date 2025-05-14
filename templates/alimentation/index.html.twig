@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des alimentations{% endblock %}
+
+{% block body %}
+<h1> Liste des alimentations</h1>
+
+<ul>
+{% for alimentation in alimentations %}
+  <li>{{ alimentation.nom}} - {{ aalimenation.quantite}}</li> 
+  {% else %}
+  <li> Auncune alimentation trouvée.</li>
+{% endfor %}
+</ul>
+{% endblock %}

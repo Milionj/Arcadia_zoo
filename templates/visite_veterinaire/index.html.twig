@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visites Vétérinaires{% endblock %}
+
+{% block body %}
+    <h1>Liste des visites vétérinaires</h1>
+
+    <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Diagnostic</th>
+                <th>Nourriture proposée</th>
+                <th>Grammage</th>
+                <th>Date de passage</th>
+                <th>Animal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visite in visiteVeterinaires %}
+                <tr>
+                    <td>{{ visite.id }}</td>
+                    <td>{{ visite.diagnosticAnimal }}</td>
+                    <td>{{ visite.nourritureProposee }}</td>
+                    <td>{{ visite.grammageNourriture }} g</td>
+                    <td>{{ visite.datePassage ? visite.datePassage|date('d/m/Y') : '—' }}</td>
+                    <td>{{ visite.animal ? visite.animal.nom : 'Non spécifié' }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucune visite vétérinaire enregistrée.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

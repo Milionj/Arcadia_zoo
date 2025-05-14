@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les des animaux{% endblock %}
+
+{% block body %}
+
+<h1> Nos animaux </h1>
+
+<ul>
+{% for animal in animaux %}
+<li>
+{{ animal.nom }} ({{ animal.espece }}) - {{ animal.age }} ans 
+</li>
+{% else %}
+
+<li> Aucun animal enregistré </li>
+{% endfor %}
+</ul>
+{% endblock %}
