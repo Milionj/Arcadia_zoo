@@ -24,6 +24,9 @@ class Animal
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $espece = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,6 +52,18 @@ class Animal
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+      public function getEspece(): ?string
+    {
+        return $this->espece;
+    }
+
+        public function setEspece(string $espece): static
+    {
+        $this->espece = $espece;
 
         return $this;
     }

@@ -17,6 +17,9 @@ class Habitat
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $nom = null;
+
+    #[ORM\Column(length: 255)]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
@@ -26,6 +29,19 @@ class Habitat
     {
         return $this->id;
     }
+
+        public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+        return $this;
+    }
+
 
     public function getDescription(): ?string
     {
