@@ -2,16 +2,65 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}z!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        <title>{% block title %}Arcadia Zoo{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <div class="page-container">
+       <header class="navbar-custom">
+       <div class="brand">
+       Arcadia
+       <img src="{{ asset('img/zoo.png') }}" alt="Zoo logo">
+       </div>
+
+       
+    <!-- Burger  -->
+    <div class="burger" id="burger">☰</div>
+
+        <nav class="nav-links" id="nav-links">
+            <a href="{{ path('app_home') }}">Accueil</a>
+            <a href="{{ path('app_home') }}">Nos habitats</a>
+            <a href="#">Contact</a>
+            <a href="{{ path('app_login') }}">Connexion</a>
+        </nav>
+       </header>
+
+        <main class="container mt-4">
         {% block body %}{% endblock %}
-    </body>
+        </main>
+        
+        {% include 'partials/footer.html.twig' %}
+
+    </div>
+
+ <script>
+ console.log("JS chargé !");
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const burger = document.getElementById('burger');
+                const navLinks = document.getElementById('nav-links');
+
+                burger.addEventListener('click', function() {
+                    navLinks.classList.toggle('show');
+                });
+
+                // Optional: Close menu when clicking a link (useful for mobile)
+                const links = navLinks.getElementsByTagName('a');
+                for (let link of links) {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('show');
+                    });
+                }
+
+                // Optional: Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navLinks.contains(event.target) && !burger.contains(event.target)) {
+                        navLinks.classList.remove('show');
+                    }
+                });
+            });
+        </script>
+
+</body>
 </html>

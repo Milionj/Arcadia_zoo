@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Arcadia Zoo{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="home-container">
+
+    {# Bannière vidéo #}
+    <div class="banner">
+        <img src="{{ asset('img/Vido_zoo.gif') }}" alt="Vidéo Zoo">
+    </div>
+
+    {# Localisation #}
+    <section class="localisation-section">
+        <h3>
+            Le zoo est situé en France près de la forêt de Brocéliande, en Bretagne depuis 1960.<br>
+            Ils possèdent tout un panel d’animaux.
+        </h3>
+
+        <div class="localisation-content">
+            <img src="{{ asset('img/carte.png') }}" alt="Carte zoo" class="carte">
+            <div class="localisation-detail">
+                <h4>La localisation</h4>
+                <p class="rue">Les Rues Mauron, 35380 Plélan-le-Grand</p>
+                <p class="gare">À proximité de la gare de <strong>Rennes</strong></p>
+                <p class="parking">Parking au <strong>Ponpoint</strong></p>
+                <p class="access-details">Détails divers et variés sur le zoo, l’accessibilité, le parking, etc...</p>
+            </div>
+        </div>
+    </section>
+
+    {# Présentation du site #}
+    <section class="description-section">
+        <button class="cta-button">Découvrez le plus beau Zoo de France</button>
+
+        <div class="description-content">
+            <div class="description-text">
+                <h4>Notre histoire</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum, magna nec tristique feugiat, 
+                    libero ante fermentum arcu, eu varius erat nisi vel velit...
+                </p>
+            </div>
+
+            <div class="animalLama">
+                <h4>Lama des Armas</h4>
+                <img src="{{ asset('img/lol.png') }}" alt="Lama des Armas">
+            </div>
+        </div>
+    </section>
+
+    <section class="felin-section">
+  <h3 class="felin-title">Une large variété de félins</h3>
+
+  <div class="felin-content">
+    <img src="{{ asset('img/Panrhere_neige.jpg') }}" alt="Panthère des neiges" class="felin-image">
+
+    <div class="felin-description">
+      <p>
+        Blablabla félin félin félin blaBlablablabla Blablablabla Blablablabla Blablablabla.<br>
+        Félin félin félin Blablablabla Blablablabla.
+      </p>
+      <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias sed fugiat consectetur! Harum mollitia enim distinctio repellendus architecto vitae quia voluptatem qui vel eos maxime, ex nobis alias officia voluptates!<br>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nesciunt dolore quisquam porro natus. Accusamus reiciendis laborum hic maxime eius amet, voluptatum ratione iure aliquid saepe repudiandae at animi aspernatur?<br>
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ea fugiat doloremque soluta numquam. Facilis eos provident explicabo vitae! Reprehenderit necessitatibus dignissimos sapiente, nam ipsa dicta quam possimus commodi cum!
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="habitats-section">
+  <h3 class="section-title">Nos habitats</h3>
+  <p class="section-subtitle">
+    Retrouvez vos animaux préférés dans <strong>leurs habitats naturels</strong> :
+  </p>
+
+  <div class="habitat-grid">
+    {% for habitat in habitats %}
+      <a href="{{ path('habitat_animaux', { 'nom': habitat.nom|url_encode }) }}" class="habitat-card">
+        <img src="{{ asset('img/' ~ habitat.img) }}" alt="{{ habitat.nom }}">
+        <div class="habitat-info">
+          <h4>{{ habitat.nom }}</h4>
+          <p>{{ habitat.description }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+
+
+</div>
+
+{% endblock %}

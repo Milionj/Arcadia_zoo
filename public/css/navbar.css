@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.page-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar-custom {
+    background-color: black;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-custom .brand {
+    color: #2C6C1C;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.navbar-custom .brand img {
+    margin-left: 10px;
+    height: 40px;
+}
+
+.navbar-custom .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-custom .nav-links a {
+    background-color: #9BDD8A;
+    padding: 5px 15px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.navbar-custom .nav-links a:hover {
+    background-color: #7CB06F;
+}
+
+.burger {
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar-custom .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 150px;
+        border: 1px solid #333;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .navbar-custom .nav-links.show {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+footer {
+    background-color: #d2bda4;
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #4e2f13;
+}
