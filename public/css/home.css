@@ -217,3 +217,52 @@
   color: #ddd;
 }
 
+
+/* Plan Zoo */
+
+.plan-zoo-section {
+  background-color: #5d3b1a;
+  color: #f0e7df;
+  padding: 2rem;
+  text-align: center;
+}
+
+.plan-zoo-section .main-title {
+  background-color: #e8d6c1;
+  color: #222;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.plan-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.plan-left h5 {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+.zoo-map {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border: 3px solid #fff;
+  border-radius: 8px;
+}
+
+.plan-right {
+  background-color: #d6c4b4;
+  color: #111;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 300px;
+  text-align: left;
+}
+
