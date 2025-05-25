@@ -6,7 +6,7 @@ security:
         users_in_database:
             entity:
                 class: App\Entity\User
-                property: email # ou "username" 
+                property: email 
 
     firewalls:
         dev:
@@ -23,8 +23,7 @@ security:
                 path: /logout
                 target: /
 
-            custom_authenticator: App\Security\SecurityControllerAuthenticator
-            entry_point: App\Security\SecurityControllerAuthenticator
+
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
 
