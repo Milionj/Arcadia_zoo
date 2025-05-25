@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Arcadia Zoo{% endblock %}</title>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Arcadia Zoo{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <div class="page-container">
-       <header class="navbar-custom">
-       <div class="brand">
-       Arcadia
-       <img src="{{ asset('img/zoo.png') }}" alt="Zoo logo">
-       </div>
+</head>
 
-       
-    <!-- Burger  -->
-    <div class="burger" id="burger">☰</div>
+<body class="{% block body_class %}{% endblock %}">
 
-        <nav class="nav-links" id="nav-links">
-            <a href="{{ path('app_home') }}">Accueil</a>
-            <a href="{{ path('app_home') }}">Nos habitats</a>
-            <a href="#">Contact</a>
-            <a href="{{ path('app_login') }}">Connexion</a>
-        </nav>
-       </header>
+    <div class="page-container">
+        <header class="navbar-custom">
+            <div class="brand">
+                Arcadia
+                <img src="{{ asset('img/zoo.png') }}" alt="Zoo logo">
+            </div>
+
+            <div class="burger" id="burger">☰</div>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="{{ path('app_home') }}">Accueil</a>
+                <a href="{{ path('app_home') }}">Nos habitats</a>
+                <a href="#">Contact</a>
+                <a href="{{ path('app_login') }}">Connexion</a>
+            </nav>
+        </header>
 
         <main class="container mt-4">
-        {% block body %}{% endblock %}
+            {% block body %}{% endblock %}
         </main>
-        
-        {% include 'partials/footer.html.twig' %}
 
+        {% include 'partials/footer.html.twig' %}
     </div>
 
- <script>
- console.log("JS chargé !");
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burger');
+            const navLinks = document.getElementById('nav-links');
 
-            document.addEventListener('DOMContentLoaded', function() {
-                const burger = document.getElementById('burger');
-                const navLinks = document.getElementById('nav-links');
-
-                burger.addEventListener('click', function() {
-                    navLinks.classList.toggle('show');
-                });
-
-                // Optional: Close menu when clicking a link (useful for mobile)
-                const links = navLinks.getElementsByTagName('a');
-                for (let link of links) {
-                    link.addEventListener('click', function() {
-                        navLinks.classList.remove('show');
-                    });
-                }
-
-                // Optional: Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!navLinks.contains(event.target) && !burger.contains(event.target)) {
-                        navLinks.classList.remove('show');
-                    }
-                });
+            burger.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
             });
-        </script>
+
+            const links = navLinks.getElementsByTagName('a');
+            for (let link of links) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('show');
+                });
+            }
+
+            document.addEventListener('click', function(event) {
+                if (!navLinks.contains(event.target) && !burger.contains(event.target)) {
+                    navLinks.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
+<script type="module" src="/js/comments.js"></script>
 
 </body>
 </html>

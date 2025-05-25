@@ -22,6 +22,7 @@ security:
             logout:
                 path: /logout
                 target: /
+
             custom_authenticator: App\Security\SecurityControllerAuthenticator
             entry_point: App\Security\SecurityControllerAuthenticator
     access_control:
